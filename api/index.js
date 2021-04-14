@@ -47,7 +47,9 @@ app.get("/total", (req, res) => {
   res.send({ total, count: expenses.length });
 });
 
-// 👉 Replace this with auth middleware 👈
+// 👆 public routes above 👆
+app.use(auth());
+// 👇 private routes below 👇
 
 app.get("/reports", (req, res) => {
   res.send(expenses);
